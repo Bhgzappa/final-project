@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import EnhancedEncryptionOutlinedIcon from "@material-ui/icons/EnhancedEncryptionOutlined";
 import {
   Typography,
@@ -9,10 +9,8 @@ import {
   TextField,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { StaffContext } from "../contexts/StaffContext";
 
-const Signin = ({ handleChange, history, location }) => {
-  const { loginStaff, staffInfo } = useContext(StaffContext);
+const Signin = ({ handleChange }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   // const redirect = location.search
