@@ -13,6 +13,7 @@ function App() {
     <main>
       <Header />
       <Container>
+      <h2 className="text-center font-bold">WELCOME, PLEASE SIGN IN/SIGN UP</h2>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/patients" component={Patients} />

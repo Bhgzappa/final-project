@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import EnhancedEncryptionOutlinedIcon from "@material-ui/icons/EnhancedEncryptionOutlined";
 import {
   Typography,
@@ -8,27 +8,29 @@ import {
   Button,
   TextField,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import {StaffContext } from "../contexts/StaffContext"
 
-const Signin = ({ handleChange }) => {
+const Signin = ({ handleChange, location, history }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const {staffInfo, loginStaff}=useContext(StaffContext)
   // const redirect = location.search
   //   ? location.search.split("=")[1]
-  //   : "/patients";
-  // useEffect(() => {
-  //   if (staffInfo) {
-  //     history.push(redirect);
-  //   }
-  // }, [history, staffInfo, redirect]);
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const staff = {
-  //     email,
-  //     password,
-  //   };
-  //   loginStaff(staff);
-  // };
+  //   : ;
+  useEffect(() => {
+    if (staffInfo) {
+     <Redirect to="/patients"/>
+    }
+  }, [ staffInfo]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const staff = {
+      email,
+      password,
+    };
+    loginStaff(staff);
+  };
   const paperStyle = {
     padding: 20,
     height: "70vh",
@@ -41,7 +43,7 @@ const Signin = ({ handleChange }) => {
 
   return (
     <Grid>
-      <Paper elevation={10} style={paperStyle}>
+      <Paper onSubmit={handleSubmit} elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
             <EnhancedEncryptionOutlinedIcon />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Paper, Tabs, Tab, Typography, Box } from "@material-ui/core";
-import Signin from "../components/Signin";
-import Signup from "../components/Signup";
+import Signin from "../screens/Signin";
+import Signup from "../screens/Signup";
 
 const SigninoutContainer = () => {
   const [value, setValue] = useState(0);

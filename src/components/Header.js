@@ -23,9 +23,6 @@ const Header = () => {
     <Navbar className="bg-danger navbar-expand text-white">
       <Container>
         <NavbarBrand className="text-white">
-          <marquee className="text-center" behavior="stay" direction="">
-            WELCOME, PLEASE SIGN IN/SIGN UP
-          </marquee>{" "}
         </NavbarBrand>
         {staffInfo.token ? (
           <Nav>
